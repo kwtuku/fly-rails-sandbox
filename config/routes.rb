@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  root "rails/welcome#index"
+  root to: redirect("/messages")
+  resources :messages
 end
