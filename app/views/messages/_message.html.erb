@@ -1,7 +1,7 @@
-<div id="<%= dom_id message %>">
+<%= turbo_frame_tag(dom_id message) do %>
   <p>
     <strong>Body:</strong>
     <%= message.body %>
   </p>
 
-</div>
+<% end %>

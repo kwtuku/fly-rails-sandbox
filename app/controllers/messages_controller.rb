@@ -40,6 +40,8 @@ class MessagesController < ApplicationController
       if @message.update(message_params)
         format.html { redirect_to message_url(@message), notice: "Message was successfully updated." }
         format.json { render :show, status: :ok, location: @message }
+
+        @message.broadcast_replace_later_to "messages", partial: "messages/message"
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @message.errors, status: :unprocessable_entity }
